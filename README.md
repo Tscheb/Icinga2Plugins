@@ -6,8 +6,18 @@ is up to date, with the remote state (or vice versa), on a given branch.
 
     Usage: check_gitlab_commit.sh [OPTIONS]
     [OPTIONS]
-    -b BRANCH     Your branch you would like to check.
-                  Defaults to the local branch.
+    -b BRANCH     your branch you would like to check.
+                  defaults to the local branch
+    -B c/w/o      Which state a wrong branch should result in
+                  c(ritical)/w(arning)/o(k)
+                  default: warning
+    -c c/w/o      Which state a wrong commit should result in
+                  c(ritical)/w(arning)/o(k)
+                  default: warning
+    -C c/w/o      Which state the check should end in,
+                  if the remote commit was read from the cache.
+                  c(ritical)/w(arning)/o(k)
+                  default: warning
     -i ID         Id of your gitlab project.
                   (required)
     -p PATH       Path to the git repository you want to check.
@@ -16,9 +26,12 @@ is up to date, with the remote state (or vice versa), on a given branch.
                   (required)
     -t TOKEN      Your private access token.
                   (required)
+    -T INTEGER    Time in minutes for the cache to expire
+                  (default 0 (no cache))
     -u URL        Your gitlab url, if you are self hosting.
-                  Defaults to: https://gitlab.com
+                  defaults to: https://gitlab.com
                   example: https://gitlab.example.com
+
 ## Sample config:
 
 #### Check Command
